@@ -184,3 +184,4 @@ LEFT JOIN outcome_month_data
 		ON outcome_month_data.outcome_month_value = animals.outcome_month
 LEFT JOIN age_upon_outcome_data
 		ON age_upon_outcome_data.age_upon_outcome_value = animals.age_upon_outcome;
+

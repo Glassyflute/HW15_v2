@@ -1,6 +1,9 @@
 from flask import Flask, jsonify
 import sqlite3
 
+# ниже выбранная краткая информация о животном для отображения при запросе.
+# выбрала animal_id как некий уникальный идентификатор животного, тк альтернативный вариант по индексу
+# выглядит малоинформативным сам по себе.
 query = """
 SELECT 
 		animals_normalized.id,
@@ -27,6 +30,11 @@ app = Flask(__name__)
 
 @app.route("/<itemid>")
 def show_animal_by_id(itemid):
+    """
+    показывает краткую информацию о животном по запросу на идентификатор
+    :param itemid:
+    :return:
+    """
     con = app.config['db']
     cursor = con.cursor()
 
@@ -42,3 +50,4 @@ if __name__ == '__main__':
     connection.row_factory = sqlite3.Row
     app.config['db'] = connection
     app.run()
+
